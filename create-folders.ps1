@@ -7,8 +7,6 @@ Get-Content "$PSScriptRoot\names.txt" | ForEach-Object {
      # Create the name folder
     $nameFolder = New-Item -ItemType Directory -Path "$PSScriptRoot\$name" -Force
 
-    Copy-Item $excelfile -Destination "$nameFolder\$name.xlsx" -Force
-
 
    Get-Content "$PSScriptRoot\sub.txt" | ForEach-Object {
        $sub = $_
