@@ -1,14 +1,17 @@
+#Get Folder names from the mainfolder.txt file
+Get-Content "$PSScriptRoot\mainfolder.txt" | ForEach-Object {
+   
 
-Get-Content "$PSScriptRoot\names.txt" | ForEach-Object {
-    $name = $_
-    $excelfile = "$PSScriptRoot\names.xlsx"
+   #folder name
+    $name = $_  
+ 
 
-
-     # Create the name folder
+     # Create the name folder and copy excel file
     $nameFolder = New-Item -ItemType Directory -Path "$PSScriptRoot\$name" -Force
 
 
-   Get-Content "$PSScriptRoot\sub.txt" | ForEach-Object {
+#Get subfolder names from the subfolders.txt file
+   Get-Content "$PSScriptRoot\subfolders.txt" | ForEach-Object {
        $sub = $_
 
   
@@ -17,5 +20,5 @@ Get-Content "$PSScriptRoot\names.txt" | ForEach-Object {
    }
           
 }
-  
+
 
